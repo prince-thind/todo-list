@@ -1,10 +1,11 @@
 let project = (function () {
   const projects = [];
+  let id=0;
   const projectFactory = function (name) {
     const project = {};
     project.name = name;
     project.tasks = [];
-    project.id = null;
+    project.id = id++;
     return project;
   };
   const addProject = function (name) {
@@ -17,7 +18,8 @@ let project = (function () {
     projects.splice(index, 1);
   };
 
-  return {addProject,deleteProject};
+  
+  return {addProject,deleteProject,projects};
 })();
 
 export default project;

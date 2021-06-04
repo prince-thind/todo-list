@@ -1,1 +1,3 @@
-alert("debug run");
+import init from './init.js';
+
+init();

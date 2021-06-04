@@ -1,7 +1,25 @@
+/*global*/
 .hidden {
-  display: none;
+  visibility: hidden;
+}
+.unhidden {
+  visibility: visible;
+}
+.center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+  background-color: lavender;
+  padding: 2rem;
+  border: 5px solid black;
 }
 
+/*main page*/
 :root {
   text-align: center;
   color: #212121;
@@ -96,4 +114,31 @@ body {
   background-color: #757575;
   padding: 1rem;
   border: 2px solid black;
+}
+
+/*add project */
+.add-project > header > h2 {
+  padding: 1rem;
+}
+.button-field {
+  padding: 1rem;
+}
+
+.button {
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+/*mark complete*/
+.task-add label {
+  display: flex;
+  justify-content: right;
+  padding: 1rem;
+}
+.task-add input {
+  margin: 0 0 0 0.5rem;
+}
+#task-para {
+  padding: 1rem;
+  width: 90%;
 }

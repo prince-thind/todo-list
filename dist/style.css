@@ -131,11 +131,13 @@ body {
 
 /*add task*/
 
+.task-add{
+  max-width: 22rem;
+}
 .task-add label {
   display: flex;
   justify-content: right;
   padding: 1rem;
-  padding-right: 13rem;
 }
 .task-add input {
   margin: 0 0 0 0.5rem;

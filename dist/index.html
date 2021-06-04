@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="unhidden">
     <header>
         <h1 class="heading">Todo</h1>
     </header>
@@ -23,7 +23,7 @@
                     <div class="project-text">dummy</div>
                     <div class="project-delete">D</div>
                 </div>
-                
+
             </div>
             <div class="add-project-button">+</div>
         </div>
@@ -44,17 +44,64 @@
     <footer class="footer">
         Footer
     </footer>
-    <!--UI componenets-->
-    <div class="hidden center add-task">
+    <!--project add-->
+    <div class="center add-project hidden">
         <header>
-            <h2>Add Details</h2>
+            <h2>Add Project</h2>
         </header>
-        <div class="task-main">
-            <form>
-
-            </form>
+        <div class="project-main">
+            <label for="project-name">Name
+                <input type="text" id="project-name" name="task-name">
+            </label>
+            <div class="button-field">
+                <button class="task-accept button">Accept</button>
+                <button class="task-cancel button">Cancel</button>
+            </div>
         </div>
     </div>
+    <!--project delete-->
+    <div class="delete-project center hidden">
+        <header>
+            <h2>Are you sure you want to delete this project?</h2>
+        </header>
+        <div class="button-field">
+            <button class="project-delete-accept button">Accept</button>
+            <button class="project-delete-cancel button">Cancel</button>
+        </div>
+    </div>
+    <!--mark-complete-->
+    <div class="mark-complete center hidden">
+        <header>
+            <h2>Are you sure you want to mark this project complete?</h2>
+        </header>
+        <div class="button-field">
+            <button class="marlk-complete-accept button">Accept</button>
+            <button class="mark-complete-cancel button">Cancel</button>
+        </div>
+    </div>
+    <!--add-task-->
+    <div class="task-add center hidden">
+        <header>
+            <h2>Add details for the task</h2>
+        </header>
+        <label for="task-name">Name
+            <input type="text" id="task-name" name="task-name">
+        </label>
+        <label for="due-date">Due Date
+            <input type="text" id="due-date" name="due-date">
+        </label>
+        <label for="task-priority">Priority
+            <input type="text" id="task-priority" name="task-priority">
+        </label>
+        <label for="task-para">Description
+            <input type="text" id="task-para" name="task-para">
+        </label>
+        <div class="button-field">
+            <button class="marlk-complete-accept button">Accept</button>
+            <button class="mark-complete-cancel button">Cancel</button>
+        </div>
+    </div>
+
 </body>
 <script src="main.js"></script>
 

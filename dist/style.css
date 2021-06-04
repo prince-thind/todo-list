@@ -1,0 +1,93 @@
+.hidden {
+  display: none;
+}
+
+:root {
+  text-align: center;
+  color: #212121;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #d7ccc8;
+}
+.heading {
+  padding: 1rem;
+  background-color: #5d4037;
+  color: #ffffff;
+}
+.main {
+  display: flex;
+  height: 100%;
+}
+.list > * {
+  border-top: 1px solid black;
+  padding: 1rem 2rem 1rem 2rem;
+  background-color: #bdbdbd;
+  border-right: 1px solid black;
+}
+.projects {
+  padding: 0;
+  border-style: none;
+}
+
+.project-cell {
+  padding: 1rem;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+}
+.project-delete {
+  background-color: hsl(0, 100%, 20%);
+  color: white;
+  padding: 0.1rem;
+  border:1px solid black;
+}
+.project-delete:hover{
+    transform: scale(1.1);
+}
+
+.add-project-button {
+  background-color: #7c4dff;
+  border-bottom: 1px solid black;
+}
+.add-project-button:hover{
+    transform: scale(1.1);
+}
+.task-area {
+  flex-grow: 1;
+}
+.task-cell {
+  padding: 1rem;
+  margin: 0 auto;
+  background-color: #795548;
+  border-top: 1px solid black;
+}
+.task-delete {
+  background-color: hsl(0, 100%, 20%);
+  color: white;
+  padding: 0.1rem;
+  margin:0 auto;
+  width: 12rem;
+  border:1px solid black;
+ }
+ .task-delete:hover{
+    transform: scale(1.1);
+}
+ .add-task-button {
+    background-color: #7c4dff;
+    padding:1rem;
+    border:1px solid black;
+    border-left:none;
+  }
+  .add-task-button:hover{
+    transform: scale(1.02);
+    border:2px solid black;
+}
+
+.footer{
+    background-color: #757575;
+    padding: 1rem;
+    border:2px solid black;
+}

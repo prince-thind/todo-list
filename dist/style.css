@@ -129,11 +129,13 @@ body {
   margin: 1rem;
 }
 
-/*mark complete*/
+/*add task*/
+
 .task-add label {
   display: flex;
   justify-content: right;
   padding: 1rem;
+  padding-right: 13rem;
 }
 .task-add input {
   margin: 0 0 0 0.5rem;
@@ -141,4 +143,5 @@ body {
 #task-para {
   padding: 1rem;
   width: 90%;
+  max-width: 10rem;
 }

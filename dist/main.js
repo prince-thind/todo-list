@@ -7,26 +7,120 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/DOM.js":
+/*!********************!*\
+  !*** ./src/DOM.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst DOM = (function () {\n  const taskAdd = find(\".add-task-button\");\n  const projectAdd = find(\".add-project-button\");\n  const taskInterface = find(\".task-add\");\n  const projectInterface = find(\".add-project\");\n  const taskDeleteInterface = find(\".task-delete\");\n  const projectDeleteInterface = find(\".project-delete\");\n  const taskBar = find(\".tasks\");\n  const projectBar = find(\".list\");\n  const projectAccept = find(\".project-accept\");\n  const projectInput = find(\"#project-name\");\n  const projectCancel = find(\".project-cancel\");\n  const projectDeleteAccept = find(\".project-delete-accept\");\n  const projectDeleteCancel = find(\".project-delete-cancel\");\n  const markCompleteAccept = find(\".mark-complete\");\n  const markCompleteCancel = find(\".mark-complete-cancel\");\n  const taskAccept = find(\".task-accept\");\n  const taskCancel = find(\".task-cancel\");\n  const taskInputName = find(\"#task-name\");\n  const taskInputDate = find(\"#task-date\");\n  const taskInputPriority = find(\"#task-priority\");\n  const taskInputDescription = find(\"#task-para\");\n\n  function find(f) {\n    return document.querySelector(f);\n  }\n  return {\n    taskAdd,\n    projectAdd,\n    taskDeleteInterface,\n    taskInterface,\n    projectDeleteInterface,\n    projectInterface,\n    taskBar,\n    projectBar,\n    projectAccept,\n    projectInput,\n    projectCancel,\n    projectDeleteAccept,\n    projectDeleteCancel,\n    markCompleteAccept,\n    markCompleteCancel,\n    taskAccept,\n    taskCancel,\n    taskInputDate,\n    taskInputName,\n    taskInputPriority,\n    taskInputDescription,\n  };\n})();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DOM);\n\n\n//# sourceURL=webpack://todo-list/./src/DOM.js?");
+
+/***/ }),
+
+/***/ "./src/UI.js":
+/*!*******************!*\
+  !*** ./src/UI.js ***!
+  \*******************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _DOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DOM.js */ \"./src/DOM.js\");\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project */ \"./src/project.js\");\n\n\n\nconst UI = (function () {\n  function toggleHide(component) {\n    component.classList.toggle(\"hidden\");\n  }\n\n  return {\n      toggleHide,\n  }\n})();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UI);\n\n\n//# sourceURL=webpack://todo-list/./src/UI.js?");
+
+/***/ }),
 
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("alert(\"debug run\");\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _init_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./init.js */ \"./src/init.js\");\n\n\n(0,_init_js__WEBPACK_IMPORTED_MODULE_0__.default)();\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/init.js":
+/*!*********************!*\
+  !*** ./src/init.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _DOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DOM.js */ \"./src/DOM.js\");\n/* harmony import */ var _UI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UI.js */ \"./src/UI.js\");\n\n\n\nfunction init(){\n    _DOM_js__WEBPACK_IMPORTED_MODULE_0__.default.taskAdd.addEventListener(\"click\",(e)=>{\n        _UI_js__WEBPACK_IMPORTED_MODULE_1__.default.toggleHide(_DOM_js__WEBPACK_IMPORTED_MODULE_0__.default.taskInterface);\n    });\n    _DOM_js__WEBPACK_IMPORTED_MODULE_0__.default.projectAdd.addEventListener(\"click\",(e)=>{\n        _UI_js__WEBPACK_IMPORTED_MODULE_1__.default.toggleHide(_DOM_js__WEBPACK_IMPORTED_MODULE_0__.default.projectInterface);\n    });\n   _DOM_js__WEBPACK_IMPORTED_MODULE_0__.default.projectCancel.addEventListener(\"click\",(e)=>{\n       _UI_js__WEBPACK_IMPORTED_MODULE_1__.default.toggleHide(_DOM_js__WEBPACK_IMPORTED_MODULE_0__.default.projectInterface); \n   })\n\n   _DOM_js__WEBPACK_IMPORTED_MODULE_0__.default.taskCancel.addEventListener(\"click\",(e)=>{\n    _UI_js__WEBPACK_IMPORTED_MODULE_1__.default.toggleHide(_DOM_js__WEBPACK_IMPORTED_MODULE_0__.default.taskInterface);\n})\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (init);\n\n//# sourceURL=webpack://todo-list/./src/init.js?");
+
+/***/ }),
+
+/***/ "./src/project.js":
+/*!************************!*\
+  !*** ./src/project.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nlet project = (function () {\n  const projects = [];\n  const projectFactory = function (name) {\n    const project = {};\n    project.name = name;\n    project.tasks = [];\n    project.id = null;\n    return project;\n  };\n  const addProject = function (name) {\n    projects.push(projectFactory(name));\n  };\n  const deleteProject = function (id) {\n    const index = projects.findIndex((e) => {\n      e.id == id;\n    });\n    projects.splice(index, 1);\n  };\n\n  return {addProject,deleteProject};\n})();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (project);\n\n\n//# sourceURL=webpack://todo-list/./src/project.js?");
 
 /***/ })
 
 /******/ 	});
 /************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/index.js"]();
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
 ;

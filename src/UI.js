@@ -35,6 +35,11 @@ const UI = (function () {
     let obj = project.projects.find((project)=>{
       return event.target.id==project.id;
     })
+    project.projects.forEach((project)=>{
+      project.active=false;
+    })
+    obj.active=true;
+    
     for(let task of obj.tasks){
       const taskCell = document.createElement("div");
       taskCell.classList.add("task-cell");

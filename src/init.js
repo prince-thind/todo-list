@@ -22,5 +22,15 @@ function init() {
       UI.toggleHide(DOM.projectInterface);
       UI.renderProjects();
   })
+
+  DOM.taskAccept.addEventListener("click",(e)=>{
+    const activeProject=project.projects.find((project)=>{
+      return project.active;
+    })
+    const taskName=DOM.taskInputName.value;
+    activeProject.tasks.push(taskName);
+    UI.toggleHide(DOM.taskInterface);
+    UI.renderProjects();
+})
 }
 export default init;

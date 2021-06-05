@@ -6,6 +6,7 @@ let project = (function () {
     project.name = name;
     project.tasks = [];
     project.id = id++;
+    project.active=false;
     return project;
   };
   const addProject = function (name) {

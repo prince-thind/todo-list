@@ -1,11 +1,9 @@
 /*global*/
 .hidden {
-  visibility: hidden;
+  display: none;
 }
-.unhidden {
-  visibility: visible;
-}
-.center {
+
+.absolute {
   position: absolute;
   left: 0;
   right: 0;
@@ -18,50 +16,59 @@
   padding: 2rem;
   border: 5px solid black;
 }
+section{
+  color:black;
+}
 
 /*main page*/
 :root {
   text-align: center;
-  color: #212121;
-  height: 100%;
+  color: white;
 }
 * {
   padding: 0;
   margin: 0;
 }
 body {
-  background-color: #d7ccc8;
-  height: 100%;
+  background-color: #1b1310;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .heading {
   padding: 1rem;
-  background-color: #5d4037;
-  color: #ffffff;
+  background-color: hsl(12, 29%, 2%);
+  text-shadow: 2px 2px 0.1rem rgb(128, 115, 0);
 }
 .main {
   display: flex;
-  height: 100%;
+  flex: 1;
 }
 .list {
-  min-height: 100%;
-  background-color: #bdbdbd;
+  background-color: #24120b;
+  border:3px solid black;
+  padding: 0.5rem;
+  margin:0.2rem;
 }
-.list > * {
-  border-top: 1px solid black;
-  padding: 1rem 2rem 1rem 2rem;
-
-  border-right: 1px solid black;
+.project-heading {
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  text-shadow:3px 3px 0.1rem black;
 }
-.projects {
-  padding: 0;
-  border-style: none;
+.project-default {
+  padding:1rem;
+  border: 2px solid white;
+  background-color: rgb(20, 8, 20);
 }
-
+.project-default:hover{
+  background-color: rgb(75, 30, 75);;
+}
 .project-cell {
   padding: 1rem;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
+  border: 2px solid rgb(37, 37, 37);
+  background-color: hsl(17, 53%, 3%);
 }
+
 .project-delete {
   background-color: hsl(0, 100%, 20%);
   color: white;
@@ -69,23 +76,27 @@ body {
   border: 1px solid black;
 }
 .project-delete:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .add-project-button {
-  background-color: #7c4dff;
-  border-bottom: 1px solid black;
+  background-color: hsl(254, 50%, 30%);
+  padding:1rem;
+  border: 1px solid black;
 }
 .add-project-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  background-color:hsl(254, 50%, 50%);
 }
 .task-area {
   flex-grow: 1;
+  margin: 0.2rem;
+  border: 2px solid black;
 }
 .task-cell {
   padding: 1rem;
   margin: 0 auto;
-  background-color: #795548;
+  background-color: hsl(117, 30%, 15%);
   border-top: 1px solid black;
 }
 .task-delete {
@@ -100,18 +111,17 @@ body {
   transform: scale(1.1);
 }
 .add-task-button {
-  background-color: #7c4dff;
+  background-color: hsl(254, 50%, 30%);
   padding: 1rem;
   border: 1px solid black;
   border-left: none;
 }
 .add-task-button:hover {
-  transform: scaleY(1.1);
-  border: 2px solid black;
+  background-color:hsl(254, 50%, 50%);
 }
 
 .footer {
-  background-color: #757575;
+  background-color: #3f3f3f;
   padding: 1rem;
   border: 2px solid black;
 }
@@ -131,15 +141,15 @@ body {
 
 /*add task*/
 
-.task-add{
+.add-task-input-fields {
   max-width: 22rem;
 }
-.task-add label {
+.add-task-input-fields label {
   display: flex;
   justify-content: right;
   padding: 1rem;
 }
-.task-add input {
+.add-task-input-fields input {
   margin: 0 0 0 0.5rem;
 }
 #task-para {

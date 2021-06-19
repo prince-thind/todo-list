@@ -1,107 +1,107 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>To-Do List</title>
-<script defer src="bundle.js"></script></head>
-
-<body class="unhidden">
+  <script defer src="bundle.js"></script></head>
+  <body>
     <header>
-        <h1 class="heading">Todo</h1>
+      <h1 class="heading">Todo</h1>
     </header>
     <main class="main">
-        <div class="list">
-            <div class="project-text">Projects</div>
-            <div class="all">All</div>
-            <div class="projects">
-                <div class="project-cell">
-                    <div class="project-text">dummy</div>
-                    <div class="project-delete">D</div>
-                </div>
-                <div class="project-cell">
-                    <div class="project-text">dummy</div>
-                    <div class="project-delete">D</div>
-                </div>
-
-            </div>
-            <div class="add-project-button">+</div>
+      <div class="list">
+        <div class="project-heading">Projects</div>
+        <div class="project-default" id="project-default">All</div>
+        <div class="projects" id="projects">
+          <div class="project-cell">
+            <div class="project-text">dummy</div>
+            <div class="project-delete" id="project-delete">D</div>
+          </div>
+          <div class="project-cell">
+            <div class="project-text">dummy</div>
+            <div class="project-delete" id="project-delete">D</div>
+          </div>
         </div>
-        <div class="task-area">
-            <div class="tasks">
-                <div class="task-cell">
-                    <div class="task-text">dummy</div>
-                    <div class="task-delete">Complete?</div>
-                </div>
-                <div class="task-cell">
-                    <div class="task-text">dummy</div>
-                    <div class="task-delete">Complete?</div>
-                </div>
-            </div>
-            <div class="add-task-button">+</div>
+        <div class="add-project-button" id="add-project-button">+</div>
+      </div>
+      <div class="task-area">
+        <div class="tasks" id="tasks">
+          <div class="task-cell">
+            <div class="task-text">dummy</div>
+            <div class="task-delete" id="task-delete">Complete?</div>
+          </div>
+          <div class="task-cell">
+            <div class="task-text">dummy</div>
+            <div class="task-delete" id="task-delete">Complete?</div>
+          </div>
         </div>
+        <div class="add-task-button" id="add-task-button">+</div>
+      </div>
     </main>
-    <footer class="footer">
-        Footer
-    </footer>
+    <footer class="footer">CopyRight © Prince Thind</footer>
+
     <!--project add-->
-    <div class="center add-project hidden">
-        <header>
-            <h2>Add Project</h2>
-        </header>
-        <div class="project-main">
-            <label for="project-name">Name
-                <input type="text" id="project-name" name="task-name">
-            </label>
-            <div class="button-field">
-                <button class="project-accept button">Accept</button>
-                <button class="project-cancel button">Cancel</button>
-            </div>
+    <section class="add-project-menu absolute hidden">
+      <header>
+        <h2>Add Project</h2>
+      </header>
+      <div class="project-main">
+        <label for="project-name"
+          >Name
+          <input type="text" id="project-name" name="task-name" />
+        </label>
+        <div class="button-field">
+          <button class="project-accept button">Accept</button>
+          <button class="project-cancel button">Cancel</button>
         </div>
-    </div>
+      </div>
+    </section>
     <!--project delete-->
-    <div class="delete-project center hidden">
-        <header>
-            <h2>Are you sure you want to delete this project?</h2>
-        </header>
-        <div class="button-field">
-            <button class="project-delete-accept button">Accept</button>
-            <button class="project-delete-cancel button">Cancel</button>
-        </div>
-    </div>
+    <section class="delete-project-menu hidden absolute">
+      <header>
+        <h2>Are you sure you want to delete this project?</h2>
+      </header>
+      <div class="button-field">
+        <button class="project-delete-accept button">Accept</button>
+        <button class="project-delete-cancel button">Cancel</button>
+      </div>
+    </section>
     <!--mark-complete-->
-    <div class="mark-complete center hidden">
-        <header>
-            <h2>Are you sure you want to mark this project complete?</h2>
-        </header>
-        <div class="button-field">
-            <button class="mark-complete-accept button">Accept</button>
-            <button class="mark-complete-cancel button">Cancel</button>
-        </div>
-    </div>
+    <section class="mark-complete-menu hidden absolute">
+      <header>
+        <h2>Are you sure you want to mark this project complete?</h2>
+      </header>
+      <div class="button-field">
+        <button class="mark-complete-accept button">Accept</button>
+        <button class="mark-complete-cancel button">Cancel</button>
+      </div>
+    </section>
     <!--add-task-->
-    <div class="task-add center hidden">
-        <header>
-            <h2>Add details for the task</h2>
-        </header>
-        <label for="task-name">Name
-            <input type="text" id="task-name" name="task-name">
+    <section class="task-add-menu absolute hidden">
+      <header>
+        <h2>Add details for the task</h2>
+      </header>
+      <div class="add-task-input-fields">
+        <label for="task-name"
+          >Name
+          <input type="text" id="task-name" name="task-name" />
         </label>
-        <label for="task-date">Due Date
-            <input type="text" id="task-date" name="task-date">
+        <label for="task-date"
+          >Due Date
+          <input type="text" id="task-date" name="task-date" />
         </label>
-        <label for="task-priority">Priority
-            <input type="text" id="task-priority" name="task-priority">
+        <label for="task-priority"
+          >Priority
+          <input type="text" id="task-priority" name="task-priority" />
         </label>
-        <label for="task-para">Description
-            <textarea id="task-para"></textarea>
+        <label for="task-para"
+          >Description
+          <textarea id="task-para"></textarea>
         </label>
-        <div class="button-field">
-            <button class="task-accept button">Accept</button>
-            <button class="task-cancel button">Cancel</button>
-        </div>
-    </div>
-
-</body>
-<script src="main.js"></script>
-
+      </div>
+      <div class="button-field">
+        <button class="task-accept button">Accept</button>
+        <button class="task-cancel button">Cancel</button>
+      </div>
+    </section>
+  </body>
 </html>

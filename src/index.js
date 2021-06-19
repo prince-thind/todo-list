@@ -1,4 +1,3 @@
-import init from './components/init.js';
-import "./style.css"
-
-init();
+import "./style.css";
+import dom from "./components/DOM.js";
+import controller from "./components/controller.js";

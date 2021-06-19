@@ -40,21 +40,54 @@
     <footer class="footer">CopyRight © Prince Thind</footer>
 
     <!--project add-->
-    <section class="add-project-menu absolute hidden">
+    <section class="add-project-menu absolute hidden" id="add-project-menu">
       <header>
         <h2>Add Project</h2>
       </header>
       <div class="project-main">
         <label for="project-name"
           >Name
-          <input type="text" id="project-name" name="task-name" />
+          <input type="text" id="project-name-input" name="task-name" />
         </label>
         <div class="button-field">
-          <button class="project-accept button">Accept</button>
-          <button class="project-cancel button">Cancel</button>
+          <button class="project-accept button" id="project-accept-button">Accept</button>
+          <button class="project-cancel button" id="project-accept-cancel">Cancel</button>
         </div>
       </div>
     </section>
+    <!--add-task-->
+    <section class="task-add-menu absolute hidden" id="add-task-menu">
+      <header>
+        <h2>Add details for the task</h2>
+      </header>
+      <div class="add-task-input-fields">
+        <label for="task-name"
+          >Name
+          <input type="text" id="task-name" name="task-name" />
+        </label>
+        <label for="task-date"
+          >Due Date
+          <input type="text" id="task-date" name="task-date" />
+        </label>
+        <label for="task-priority"
+          >Priority
+          <div class="priority-buttons">
+            <label for="button-high"><input id="button-high" name="priority" type="radio" value="high">High</label>
+            <label for="button-medium"><input id="button-medium" name="priority" type="radio" value="medium" checked>Medium</label>
+            <label for="button-low"><input id="button-low" name="priority" type="radio" value="low">Low</label>
+          </div>
+        </label>
+        <label for="task-para"
+          >Description
+          <textarea id="task-description"></textarea>
+        </label>
+      </div>
+      <div class="button-field">
+        <button class="task-accept button" id="task-accept-button">Accept</button>
+        <button class="task-cancel button" id="task-cancel-button">Cancel</button>
+      </div>
+    </section>
+
     <!--project delete-->
     <section class="delete-project-menu hidden absolute">
       <header>
@@ -73,34 +106,6 @@
       <div class="button-field">
         <button class="mark-complete-accept button">Accept</button>
         <button class="mark-complete-cancel button">Cancel</button>
-      </div>
-    </section>
-    <!--add-task-->
-    <section class="task-add-menu absolute hidden">
-      <header>
-        <h2>Add details for the task</h2>
-      </header>
-      <div class="add-task-input-fields">
-        <label for="task-name"
-          >Name
-          <input type="text" id="task-name" name="task-name" />
-        </label>
-        <label for="task-date"
-          >Due Date
-          <input type="text" id="task-date" name="task-date" />
-        </label>
-        <label for="task-priority"
-          >Priority
-          <input type="text" id="task-priority" name="task-priority" />
-        </label>
-        <label for="task-para"
-          >Description
-          <textarea id="task-para"></textarea>
-        </label>
-      </div>
-      <div class="button-field">
-        <button class="task-accept button">Accept</button>
-        <button class="task-cancel button">Cancel</button>
       </div>
     </section>
   </body>

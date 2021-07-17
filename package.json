@@ -1,33 +1,38 @@
 {
- "name": "todo-list",
- "version": "1.0.0",
- "description": "A webpage to manage todo lists.",
- "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "watch": "webpack --watch",
-  "start": "webpack serve --open",
-  "server": "node server.js",
-  "build": "webpack"
- },
- "repository": {
-  "type": "git",
-  "url": "git+https://github.com/Prince-Thind/todo-list.git"
- },
- "keywords": [],
- "author": "Prince-Thind",
- "license": "AGPL-3.0",
- "bugs": {
-  "url": "https://github.com/Prince-Thind/todo-list/issues"
- },
- "homepage": "https://github.com/Prince-Thind/todo-list#readme",
- "devDependencies": {
-  "css-loader": "^5.2.6",
-  "express": "^4.17.1",
-  "html-webpack-plugin": "^5.3.1",
-  "style-loader": "^2.0.0",
-  "webpack": "^5.39.1",
-  "webpack-cli": "^4.7.2",
-  "webpack-dev-middleware": "^5.0.0"
- },
- "private": true
+  "name": "todo-list",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

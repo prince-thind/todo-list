@@ -65,6 +65,7 @@ async function getTasks(projectsWithPIDS, user) {
       name: data.name,
       pid: data.pid,
       uid: data.uid,
+      tid:data.tid,
       description: data.description,
     });
   });
@@ -89,4 +90,19 @@ function dbListner(user, setProjects) {
     });
 }
 
-export { db, dbListner, getFirebaseProjects };
+
+async function deleteProject(project) {
+    const docs = await db.collection("projects").where('pid', '==', project.pid).get();
+  docs.forEach(element => {
+    element.ref.delete();
+});
+}
+
+async function deleteTask(task) {
+  const docs = await db.collection("tasks").where('tid', '==', task.tid).get();
+docs.forEach(element => {
+  element.ref.delete();
+});
+}
+
+export { db, dbListner, deleteProject,deleteTask,getFirebaseProjects };

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TaskForm from "./TaskForm";
+import { deleteTask } from "../firebase/firestore";
 
 function TaskList({ activeProject }) {
   const [formActive, setFormActive] = useState(false);
@@ -21,11 +22,27 @@ function TaskList({ activeProject }) {
     return (
       <ul className="task-list">
         {activeProject.tasks.map((task, index) => {
-          return <li key={index}>{task.name}
-          <span className="task-description">{task.description}</span></li>;
+          return <li key={index}>{task.name} 
+          <span className="task-description">{task.description}</span>
+          <DeleteIcon  task={task} /></li>;
         })}
       </ul>
     );
+
+    function DeleteIcon({task}) {
+      return (
+        <span
+          className="delete-icon"
+          onClick={() => {
+            deleteTask(task);
+          }}
+        >
+          X
+        </span>
+      );
+
+     
+  }
   }
 
   function AddTaskButton({ formActive }) {

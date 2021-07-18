@@ -88,6 +88,7 @@
 .project-form input:focus-visible {
   caret-color: white;
   outline: none;
+  color:white;
 }
 .task-tab {
   background-color: rgb(58, 25, 19);
@@ -131,7 +132,16 @@
   margin: 0.5rem;
 }
 .footer {
-  background-color: black;
-  border: 1px solid white;
+  background-color: rgb(12, 12, 12);
+  border: 1px solid gray;
   padding: 0.5rem;
+}
+.delete-icon{
+  background-color: rgb(73, 0, 0);
+  padding:0.1rem;
+  float: right;
+}
+.delete-icon:hover{
+  transform: scale(1.1);
+  cursor: pointer;
 }

@@ -1,5 +1,5 @@
 import { db } from "../firebase/firestore";
-import uniqid from 'uniqid';
+import uniqid from "uniqid";
 
 function ProjectForm({ user }) {
   return (
@@ -12,9 +12,12 @@ function ProjectForm({ user }) {
           required
           maxLength="20"
           minLength="2"
+          placeholder="project name"
         />
       </label>
-      <button type="submit">Add Project</button>
+      <button type="submit" className="button project-button">
+        Add Project
+      </button>
     </form>
   );
 

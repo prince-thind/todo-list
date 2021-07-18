@@ -7,7 +7,7 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
 
   function Form() {
     return (
-    <form className="task-form" onSubmit={handletaskForm}>
+      <form className="task-form" onSubmit={handletaskForm}>
         <label htmlFor="task-name">
           {" "}
           Task Name
@@ -31,8 +31,11 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
             minLength="5"
           />
         </label>
-        <button type="submit">submit</button>
+        <button type="submit" className="button">
+          submit
+        </button>
         <button
+          className="button"
           onClick={() => {
             setFormActive(false);
           }}
@@ -46,7 +49,7 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
     e.preventDefault();
     setFormActive(false);
     const form = e.target;
-    console.log({activeProject});
+    console.log({ activeProject });
 
     db.collection("tasks").add({
       name: form["task-name"].value,

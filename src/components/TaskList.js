@@ -6,7 +6,8 @@ function TaskList({ activeProject }) {
 
   if (activeProject) {
     return (
-      <div className="task-bar">
+      <div className="task-tab">
+        <div className="task-heading">Tasks</div>
         <List />
         <AddTaskButton formActive={formActive} />
         <TaskForm formActive={formActive} setFormActive={setFormActive} activeProject={activeProject} />
@@ -20,7 +21,8 @@ function TaskList({ activeProject }) {
     return (
       <ul className="task-list">
         {activeProject.tasks.map((task, index) => {
-          return <li key={index}>{task.name}</li>;
+          return <li key={index}>{task.name}
+          <span className="task-description">{task.description}</span></li>;
         })}
       </ul>
     );
@@ -30,6 +32,7 @@ function TaskList({ activeProject }) {
     if (!formActive) {
       return (
         <button
+        className='button'
           onClick={() => {
             setFormActive(true);
           }}

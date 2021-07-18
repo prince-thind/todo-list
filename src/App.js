@@ -36,15 +36,16 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1 className="heading">To-do</h1>
+      <header className='header'>
+        <h1 className="heading">Todo List</h1>
         <StatusBar user={user} setUser={setUser} />
       </header>
-      <main>
+      <main className='main'>
         <ProjectList
           user={user}
           projects={projects}
           setActiveProject={setActiveProject}
+          activeProject={activeProject}
         />
         <TaskList activeProject={activeProject} />
       </main>

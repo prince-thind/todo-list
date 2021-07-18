@@ -32,7 +32,7 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
           />
         </label>
         <button type="submit" className="button">
-          submit
+          Submit
         </button>
         <button
           className="button"
@@ -40,7 +40,7 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
             setFormActive(false);
           }}
         >
-          close
+          Close
         </button>
       </form>
     );
@@ -49,12 +49,12 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
     e.preventDefault();
     setFormActive(false);
     const form = e.target;
-    console.log({ activeProject });
 
     db.collection("tasks").add({
       name: form["task-name"].value,
       uid: activeProject.uid,
       pid: activeProject.pid,
+      description: form["task-description"].value,
     });
     form.reset();
   }

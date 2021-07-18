@@ -71,4 +71,22 @@ async function getTasks(projectsWithPIDS, user) {
   return arr;
 }
 
-export { db, getFirebaseProjects };
+function dbListner(user, setProjects) {
+  db.collection("projects")
+    .where("uid", "==", user.uid)
+    .onSnapshot(() => {
+      getFirebaseProjects(user).then((res) => {
+        setProjects(res);
+      });
+    });
+
+  db.collection("tasks")
+    .where("uid", "==", user.uid)
+    .onSnapshot(() => {
+      getFirebaseProjects(user).then((res) => {
+        setProjects(res);
+      });
+    });
+}
+
+export { db, dbListner, getFirebaseProjects };

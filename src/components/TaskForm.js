@@ -1,4 +1,5 @@
 import { db } from "../firebase/firestore";
+import uniqid from 'uniqid';
 
 function TaskForm({ activeProject, formActive, setFormActive }) {
   if (activeProject && formActive) {
@@ -54,6 +55,7 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
       name: form["task-name"].value,
       uid: activeProject.uid,
       pid: activeProject.pid,
+      tid: uniqid(),
       description: form["task-description"].value,
     });
     form.reset();

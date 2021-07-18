@@ -10,7 +10,6 @@ function StatusBar({ user, setUser }) {
   );
 
   function Buttonaccount({user}) {
-      console.log(user.uid);
     if (user) {
       return <button onClick={logout}>logout!</button>;
     } else {

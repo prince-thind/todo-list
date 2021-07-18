@@ -1,3 +1,5 @@
+import { db } from "../firebase/firestore";
+
 function TaskForm({ activeProject, formActive, setFormActive }) {
   if (activeProject && formActive) {
     return <Form />;
@@ -5,7 +7,7 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
 
   function Form() {
     return (
-      <form className="task-form" onSubmit={handletaskForm}>
+    <form className="task-form" onSubmit={handletaskForm}>
         <label htmlFor="task-name">
           {" "}
           Task Name
@@ -43,6 +45,15 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
   function handletaskForm(e) {
     e.preventDefault();
     setFormActive(false);
+    const form = e.target;
+    console.log({activeProject});
+
+    db.collection("tasks").add({
+      name: form["task-name"].value,
+      uid: activeProject.uid,
+      pid: activeProject.pid,
+    });
+    form.reset();
   }
 }
 

@@ -1,3 +1,6 @@
+import { db } from "../firebase/firestore";
+import uniqid from 'uniqid';
+
 function ProjectForm({ user }) {
   return (
     <form className="project-form" onSubmit={handleProjectForm}>
@@ -14,9 +17,17 @@ function ProjectForm({ user }) {
       <button type="submit">Add Project</button>
     </form>
   );
+
+  function handleProjectForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    db.collection("projects").add({
+      name: form["project-name"].value,
+      uid: user.uid,
+      pid: uniqid(),
+    });
+    form.reset();
+  }
 }
 
-function handleProjectForm(e) {
-  e.preventDefault();
-}
 export default ProjectForm;

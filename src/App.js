@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import firebase from "./firebase/firebaseConfig";
+import { getFirebaseProjects } from "./firebase/firestore";
 
 import ProjectList from "./components/ProjectList";
 import TaskList from "./components/TaskList";
 import StatusBar from "./components/StatusBar";
 
 function App() {
+  const [user, setUser] = useState(null);
   const [projects, setProjects] = useState([]);
   const [activeProject, setActiveProject] = useState(null);
-  const [user,setUser]=useState(null);
 
-  
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       setUser(user);
@@ -18,48 +18,34 @@ function App() {
       setUser(null);
     }
   });
-  
 
   useEffect(() => {
-    setProjects(getProjects());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(()=>{
-    if(!user){
+    if (user) {
+      getProjects(user);
+    } else {
       setActiveProject(null);
+      setProjects([]);
     }
-  },[user])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
-  function getProjects() {
-    return sampleProjects();
-  }
-
-  function sampleProjects() {
-    return [
-      {
-        name: "project1",
-        tasks: [{ name: "task1.1" }, { name: "task1.2" }],
-      },
-      {
-        name: "project2",
-        tasks: [{ name: "task2.1" }, { name: "task2.2" }],
-      },
-      {
-        name: "project3",
-        tasks: [{ name: "task3.1" }, { name: "task3.2" }],
-      },
-    ];
+  async function getProjects(user) {
+   const projects= await getFirebaseProjects(user);
+   setProjects(projects);
   }
 
   return (
     <div className="App">
       <header>
         <h1 className="heading">To-do</h1>
-        <StatusBar user={user} setUser={setUser}/>
+        <StatusBar user={user} setUser={setUser} />
       </header>
       <main>
-        <ProjectList user={user} projects={projects} setActiveProject={setActiveProject} />
+        <ProjectList
+          user={user}
+          projects={projects}
+          setActiveProject={setActiveProject}
+        />
         <TaskList activeProject={activeProject} />
       </main>
       <footer className="footer">CopyRight &copy; Prince Thind</footer>

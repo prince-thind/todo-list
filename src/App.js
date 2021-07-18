@@ -25,6 +25,12 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(()=>{
+    if(!user){
+      setActiveProject(null);
+    }
+  },[user])
+
   function getProjects() {
     return sampleProjects();
   }
@@ -53,7 +59,7 @@ function App() {
         <StatusBar user={user} setUser={setUser}/>
       </header>
       <main>
-        <ProjectList projects={projects} setActiveProject={setActiveProject} />
+        <ProjectList user={user} projects={projects} setActiveProject={setActiveProject} />
         <TaskList activeProject={activeProject} />
       </main>
       <footer className="footer">CopyRight &copy; Prince Thind</footer>

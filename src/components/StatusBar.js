@@ -2,7 +2,7 @@ function StatusBar({ user, setUser }) {
   return (
     <div className="status-bar">
       <div className="username">{user}</div>
-      <button className="edit" onClick={editUser}>Edit</button>
+      <button className="edit-button" onClick={editUser}>Edit</button>
     </div>
   );
 

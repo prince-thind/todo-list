@@ -1,8 +1,8 @@
 import { useState } from "react";
 import TaskForm from "./TaskForm";
-import { deleteTask } from "../firebase/firestore";
+import _ from 'loadsh';
 
-function TaskList({ activeProject }) {
+function TaskList({ activeProject, projects,setProjects,setActiveProject }) {
   const [formActive, setFormActive] = useState(false);
 
   if (activeProject) {
@@ -11,7 +11,9 @@ function TaskList({ activeProject }) {
         <div className="task-heading">Tasks</div>
         <List />
         <AddTaskButton formActive={formActive} />
-        <TaskForm formActive={formActive} setFormActive={setFormActive} activeProject={activeProject} />
+        <TaskForm formActive={formActive} setFormActive={setFormActive} activeProject={activeProject} projects={projects}
+          setActiveProject={setActiveProject}
+          setProjects={setProjects}  />
       </div>
     );
   } else {
@@ -34,7 +36,7 @@ function TaskList({ activeProject }) {
         <span
           className="delete-icon"
           onClick={() => {
-            deleteTask(task);
+            deleteTask(activeProject,task);
           }}
         >
           X
@@ -60,6 +62,16 @@ function TaskList({ activeProject }) {
     }
     else return null;
   }
+  function deleteTask(targetProject,targetTask){
+  const projectsCopy = _.cloneDeep(projects);
+  const index = projects.indexOf(targetProject);
+  const taskIndex= projectsCopy[index].tasks.indexOf(targetTask);
+  projectsCopy[index].tasks.splice(taskIndex,1);
+  setProjects(projectsCopy);
+  setActiveProject(projectsCopy[index]);
 }
+}
+
+
 
 export default TaskList;

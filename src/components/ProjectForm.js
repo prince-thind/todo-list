@@ -1,7 +1,6 @@
-import { db } from "../firebase/firestore";
-import uniqid from "uniqid";
+import _ from 'loadsh';
 
-function ProjectForm({ user }) {
+function ProjectForm({ projects,setProjects }) {
   return (
     <form className="project-form" onSubmit={handleProjectForm}>
       <label htmlFor="project-name">
@@ -24,11 +23,13 @@ function ProjectForm({ user }) {
   function handleProjectForm(e) {
     e.preventDefault();
     const form = e.target;
-    db.collection("projects").add({
-      name: form["project-name"].value,
-      uid: user.uid,
-      pid: uniqid(),
-    });
+    const project={};
+    project.name=form['project-name'].value;
+    project.tasks=[];
+
+    const projectsCopy=_.cloneDeep(projects);
+    projectsCopy.push(project);
+    setProjects(projectsCopy);
     form.reset();
   }
 }

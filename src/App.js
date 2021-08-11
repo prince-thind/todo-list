@@ -1,50 +1,50 @@
-import { useState, useEffect } from "react";
-import firebase from "./firebase/firebaseConfig";
-import { getFirebaseProjects, dbListner } from "./firebase/firestore";
-
-import ProjectList from "./components/ProjectList";
-import TaskList from "./components/TaskList";
-import StatusBar from "./components/StatusBar";
+import { useState, useEffect } from 'react';
+import ProjectList from './components/ProjectList';
+import TaskList from './components/TaskList';
+import StatusBar from './components/StatusBar';
 
 function App() {
   const [user, setUser] = useState(null);
   const [projects, setProjects] = useState([]);
   const [activeProject, setActiveProject] = useState(null);
 
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      setUser(user);
-    } else {
-      setUser(null);
-    }
-  });
-
   useEffect(() => {
-    if (user) {
-      getProjects(user);
-      dbListner(user,setProjects);
-    } else {
-      setActiveProject(null);
-      setProjects([]);
+    setUser(getLocalUser());
+    setProjects(getProjects());
+  }, []);
+
+
+  function getLocalUser() {
+    if (localStorage.hasOwnProperty('todo-user')) {
+      return localStorage.getItem('todo-user');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+    return 'Guest';
+  }
 
-  useEffect(()=>{
-    if(projects && activeProject){
-        const main=projects.find(proj=>{
-      return proj.pid===activeProject.pid;
-    })
-    setActiveProject(main);
-    }
-  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[projects])
-
-
-  async function getProjects(user) {
-    const projects = await getFirebaseProjects(user);
-    setProjects(projects);
+  function getProjects(user) {
+    return [
+      {
+        name: 'proejct1',
+        tasks: [
+          { name: 't11', description: 'd11' },
+          { name: 't12', description: 'd12' },
+        ],
+      },
+      {
+        name: 'proejct2',
+        tasks: [
+          { name: 't21', description: 'd21' },
+          { name: 't22', description: 'd22' },
+        ],
+      },
+      {
+        name: 'proejct3',
+        tasks: [
+          { name: 't31', description: 'd31' },
+          { name: 't32', description: 'd32' },
+        ],
+      },
+    ];
   }
 
   return (
@@ -55,12 +55,18 @@ function App() {
       </header>
       <main className="main">
         <ProjectList
-          user={user}
           projects={projects}
           setActiveProject={setActiveProject}
           activeProject={activeProject}
+          setProjects={setProjects}
         />
-        <TaskList activeProject={activeProject} />
+        <TaskList
+          activeProject={activeProject}
+          projects={projects}
+          setProjects={setProjects}
+          setActiveProject={setActiveProject}
+
+        />
       </main>
       <footer className="footer">CopyRight &copy; Prince Thind</footer>
     </div>

@@ -1,34 +1,17 @@
-import { googleSignIn, googleSignOut } from "../firebase/authProvider";
-
 function StatusBar({ user, setUser }) {
-    
   return (
     <div className="status-bar">
-      <UserName user={user} />
-      <Buttonaccount user={user} />
+      <div className="username">{user}</div>
+      <button className="edit" onClick={editUser}>Edit</button>
     </div>
   );
 
-  function Buttonaccount({user}) {
-    if (user) {
-      return <button onClick={logout} className='logout-button button'>Logout</button>;
-    } else {
-      return <button onClick={login} className='login-button button'>Sign In</button>;
+  function editUser() {
+    const newUser=prompt('enter the name of new user');
+    if(newUser){
+      setUser(newUser);
+      localStorage.setItem('todo-user',newUser);
     }
-  }
-
-  function UserName({ user }) {
-    if (!user) return <div>Sign In to use</div>;
-    return <div className="username">{user.displayName}</div>;
-  }
-  async function login() {
-    const user = await googleSignIn();
-    setUser(user);
-  }
-
-  async function logout() {
-    const user = await googleSignOut();
-    setUser(user);
   }
 }
 export default StatusBar;

@@ -1,7 +1,13 @@
-import { db } from "../firebase/firestore";
-import uniqid from 'uniqid';
+import _ from 'loadsh';
 
-function TaskForm({ activeProject, formActive, setFormActive }) {
+function TaskForm({
+  activeProject,
+  formActive,
+  setFormActive,
+  projects,
+  setProjects,
+  setActiveProject,
+}) {
   if (activeProject && formActive) {
     return <Form />;
   } else return null;
@@ -10,7 +16,7 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
     return (
       <form className="task-form" onSubmit={handletaskForm}>
         <label htmlFor="task-name">
-          {" "}
+          {' '}
           Task Name
           <input
             type="text"
@@ -22,7 +28,7 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
           />
         </label>
         <label htmlFor="task-description">
-          {" "}
+          {' '}
           Task Description
           <input
             type="text"
@@ -50,15 +56,20 @@ function TaskForm({ activeProject, formActive, setFormActive }) {
     e.preventDefault();
     setFormActive(false);
     const form = e.target;
-
-    db.collection("tasks").add({
-      name: form["task-name"].value,
-      uid: activeProject.uid,
-      pid: activeProject.pid,
-      tid: uniqid(),
-      description: form["task-description"].value,
-    });
+    const task = {
+      name: form['task-name'].value,
+      description: form['task-description'].value,
+    };
+    addTask(activeProject, task);
     form.reset();
+  }
+  function addTask(targetProject, task) {
+    const projectsCopy = _.cloneDeep(projects);
+    const index = projects.indexOf(targetProject);
+    projectsCopy[index].tasks.push(task);
+    setProjects(projectsCopy);
+    setActiveProject(projectsCopy[index]);
+
   }
 }
 

@@ -1,6 +1,10 @@
+import './index.css';
+import './styles/header.css';
+import './styles/projects.css';
+import './styles/tasks.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 
 ReactDOM.render(

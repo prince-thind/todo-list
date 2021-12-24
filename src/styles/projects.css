@@ -1,0 +1,59 @@
+.project-tab {
+  background-color: rgb(2, 39, 39);
+  margin: 0.5rem;
+  border: 1px solid gray;
+  max-width: 30%;
+}
+.project-heading {
+  padding: 1rem;
+  background-color: rgb(0, 24, 24);
+  border: 1px solid gray;
+}
+.project-list {
+  list-style-type: none;
+}
+.project-list > li {
+  padding: 0.3rem;
+  border: 1px solid black;
+  background-color: hsl(106, 50%, 15%);
+}
+.project-list > .active {
+  background-color: hsl(106, 50%, 5%);
+}
+
+.project-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.project-form input {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid gray;
+}
+.project-form input::placeholder {
+  color: white;
+}
+.project-form input:focus-visible {
+  caret-color: white;
+  outline: none;
+  color: white;
+}
+@media only screen and (max-width: 760px) {
+  .project-heading {
+    border-right: none;
+  }
+  .project-tab {
+    margin: 0;
+  }
+  .project-form {
+    flex-direction: column;
+  }
+  .project-form input::placeholder {
+    font-size: 0.7rem;
+  }
+}

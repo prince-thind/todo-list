@@ -1,31 +1,38 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+html {
+  --background: hsl(0, 0%, 90%);
+  --primary: hsl(120, 40%, 15%);
+  --secondary: hsl(180, 80%, 15%);
+  --accent1: hsl(190, 40%, 45%);
+  --primary-text: hsl(0, 0%, 90%);
+  --secondary-text: hsl(0, 0%, 10%);
 }
 .App {
-  background-color: hsl(224, 65%, 2%);
-  color: white;
+  background-color: var(--background);
+  color: var(--primary-text);
   text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-.button {
-  padding: 0.5rem;
-  border: 1px solid gray;
-  background-color: rgb(28, 28, 63);
-  color: rgb(235, 231, 176);
-  margin: 1rem 0;
-}
-.button:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-  background-color: rgb(15, 15, 32);
-}
-.main {
+main {
   display: flex;
   flex: 1;
 }
+.button {
+  padding: 0.5rem;
+  background-color: var(--secondary);
+  color: var(--primary-text);
+}
+.button:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
 .footer {
   background-color: rgb(12, 12, 12);
   border: 1px solid gray;

@@ -20,20 +20,19 @@
   list-style-type: none;
 }
 .project-item {
-  /* padding: 0.5rem; */
   background-color: var(--primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 1rem;
-  /* border-bottom: 1px solid gray; */
+  color:var(--accent1-text);
 }
 .project-item:hover {
-  background-color: var(--accent1);
+  background-color: var(--accent2);
   cursor: pointer;
 }
 .active {
-  background-color: var(--accent1);
+  background-color: var(--accent2);
 }
 
 .delete-icon {
@@ -43,7 +42,6 @@
 }
 .delete-icon:hover {
   cursor: pointer;
-  background-color: var(--secondary);
 }
 .delete-icon:hover svg {
   transform: scale(1.2);

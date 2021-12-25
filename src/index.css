@@ -8,9 +8,11 @@ html {
   --primary: hsl(120, 40%, 15%);
   --secondary: hsl(180, 80%, 5%);
   --accent1: hsl(180, 80%, 15%);
+  --accent2: hsl(120, 40%, 5%);
   --primary-text: hsl(0, 0%, 90%);
   --secondary-text: hsl(0, 0%, 10%);
-  --danger:hsl(0,75%,50%);
+  --accent1-text: hsl(0, 0%, 80%);
+  --danger: hsl(0, 75%, 50%);
 }
 .App {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -40,4 +42,3 @@ main {
   border: 1px solid gray;
   padding: 0.5rem;
 }
-

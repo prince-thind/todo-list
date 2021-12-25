@@ -1,19 +1,26 @@
 import { useState } from "react";
 import TaskForm from "./TaskForm";
-import _ from 'loadsh';
+import _ from "loadsh";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt as deleteIcon } from "@fortawesome/free-solid-svg-icons";
 
-function TaskList({ activeProject, projects,setProjects,setActiveProject }) {
+function TaskList({ activeProject, projects, setProjects, setActiveProject }) {
   const [formActive, setFormActive] = useState(false);
 
   if (activeProject) {
     return (
-      <div className="task-tab">
-        <div className="task-heading">Tasks</div>
+      <div className="tasks-section">
+        <div className="tasks-heading">Tasks</div>
         <List />
         <AddTaskButton formActive={formActive} />
-        <TaskForm formActive={formActive} setFormActive={setFormActive} activeProject={activeProject} projects={projects}
+        <TaskForm
+          formActive={formActive}
+          setFormActive={setFormActive}
+          activeProject={activeProject}
+          projects={projects}
           setActiveProject={setActiveProject}
-          setProjects={setProjects}  />
+          setProjects={setProjects}
+        />
       </div>
     );
   } else {
@@ -22,36 +29,38 @@ function TaskList({ activeProject, projects,setProjects,setActiveProject }) {
 
   function List() {
     return (
-      <ul className="task-list">
+      <ul className="tasks-list">
         {activeProject.tasks.map((task, index) => {
-          return <li key={index}>{task.name} 
-          <span className="task-description">{task.description}</span>
-          <DeleteIcon  task={task} /></li>;
+          return (
+            <li key={index} className="task">
+              {task.name}
+              <p className="task-description">{task.description}</p>
+              <DeleteButton task={task} />
+            </li>
+          );
         })}
       </ul>
     );
 
-    function DeleteIcon({task}) {
+    function DeleteButton({ task }) {
       return (
         <span
-          className="delete-icon"
+          className="task-delete-icon"
           onClick={() => {
-            deleteTask(activeProject,task);
+            deleteTask(activeProject, task);
           }}
         >
-          X
+          <FontAwesomeIcon icon={deleteIcon} />
         </span>
       );
-
-     
-  }
+    }
   }
 
   function AddTaskButton({ formActive }) {
     if (!formActive) {
       return (
         <button
-        className='button'
+          className="button task-button"
           onClick={() => {
             setFormActive(true);
           }}
@@ -59,19 +68,16 @@ function TaskList({ activeProject, projects,setProjects,setActiveProject }) {
           Add Task
         </button>
       );
-    }
-    else return null;
+    } else return null;
   }
-  function deleteTask(targetProject,targetTask){
-  const projectsCopy = _.cloneDeep(projects);
-  const index = projects.indexOf(targetProject);
-  const taskIndex= projectsCopy[index].tasks.indexOf(targetTask);
-  projectsCopy[index].tasks.splice(taskIndex,1);
-  setProjects(projectsCopy);
-  setActiveProject(projectsCopy[index]);
+  function deleteTask(targetProject, targetTask) {
+    const projectsCopy = _.cloneDeep(projects);
+    const index = projects.indexOf(targetProject);
+    const taskIndex = projectsCopy[index].tasks.indexOf(targetTask);
+    projectsCopy[index].tasks.splice(taskIndex, 1);
+    setProjects(projectsCopy);
+    setActiveProject(projectsCopy[index]);
+  }
 }
-}
-
-
 
 export default TaskList;

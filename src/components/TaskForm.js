@@ -25,6 +25,7 @@ function TaskForm({
             required
             maxLength="20"
             minLength="2"
+            placeholder='Task Name'
           />
         </label>
         <label htmlFor="task-description">
@@ -36,13 +37,15 @@ function TaskForm({
             id="task-description"
             maxLength="50"
             minLength="5"
+            placeholder='Task Description'
+
           />
         </label>
-        <button type="submit" className="button">
+        <button type="submit" className="button task-button">
           Submit
         </button>
         <button
-          className="button"
+          className="button task-button"
           onClick={() => {
             setFormActive(false);
           }}

@@ -11,7 +11,7 @@ function ProjectForm({ projects,setProjects }) {
           required
           maxLength="20"
           minLength="2"
-          placeholder="project name"
+          placeholder="Project Name"
         />
       </label>
       <button type="submit" className="button project-button">

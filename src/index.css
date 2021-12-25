@@ -6,12 +6,13 @@
 html {
   --background: hsl(0, 0%, 90%);
   --primary: hsl(120, 40%, 15%);
-  --secondary: hsl(180, 80%, 15%);
-  --accent1: hsl(190, 40%, 45%);
+  --secondary: hsl(180, 80%, 5%);
+  --accent1: hsl(180, 40%, 15%);
   --primary-text: hsl(0, 0%, 90%);
   --secondary-text: hsl(0, 0%, 10%);
 }
 .App {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: var(--background);
   color: var(--primary-text);
   text-align: center;
@@ -41,7 +42,7 @@ main {
 .delete-icon {
   background-color: rgb(73, 0, 0);
   padding: 0.1rem;
-  float: right;
+  /* float: right; */
 }
 .delete-icon:hover {
   transform: scale(1.1);

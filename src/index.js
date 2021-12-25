@@ -2,6 +2,7 @@ import './index.css';
 import './styles/header.css';
 import './styles/projects.css';
 import './styles/tasks.css';
+import './styles/project-form.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

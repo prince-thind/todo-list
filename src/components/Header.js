@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckSquare as todoSymbol } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheckSquare as todoSymbol,
+  faUser as userIcon,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const [user, setUser] = useState(null);
@@ -21,7 +24,10 @@ function Header() {
 function StatusBar({ user, setUser }) {
   return (
     <div className="status-bar">
-      <div className="username">{user}</div>
+      <div className="username">
+        <FontAwesomeIcon icon={userIcon} />
+        {user}
+      </div>
       <button className="button" onClick={editUser}>
         Edit
       </button>

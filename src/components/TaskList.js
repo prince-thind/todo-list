@@ -33,7 +33,7 @@ function TaskList({ activeProject, projects, setProjects, setActiveProject }) {
         {activeProject.tasks.map((task, index) => {
           return (
             <li key={index} className="task">
-              {task.name}
+              <h4>{task.name}</h4>
               <p className="task-description">{task.description}</p>
               <DeleteButton task={task} />
             </li>

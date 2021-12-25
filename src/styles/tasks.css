@@ -3,39 +3,39 @@
   color: var(--secondary-text);
 }
 .tasks-heading {
-  padding: 0.5rem;
-  padding-left: 1rem;
+  padding: 0.5em;
+  padding-left: 1em;
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 .tasks-list {
   list-style-type: none;
   text-align: left;
 }
 .task {
-  padding: 1rem;
-  margin: 1rem;
+  padding: 1em;
+  margin: 1em;
   border-radius: 10px;
   border: 1px solid black;
   display: flex;
   align-items: flex-start;
 }
 .task-description {
-  margin: 0 2rem;
+  margin: 0 2em;
   color: gray;
 }
-.task-delete-icon{
-  font-size: 1.2rem;
+.task-delete-icon {
+  font-size: 1.2em;
   color: var(--danger);
   margin-left: auto;
 }
-.task-delete-icon:hover{
+.task-delete-icon:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 .task-form {
   width: 40%;
-  min-width: 25rem;
+  min-width: 25em;
   margin: 0 auto;
 }
 .task-form > label {
@@ -43,37 +43,36 @@
   justify-content: space-between;
   align-items: center;
   text-align: left;
-  margin: 0.5rem 0;
+  margin: 0.5em 0;
 }
-.task-form input{
+.task-form input {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid gray;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
-.task-form input:focus-visible{
+.task-form input:focus-visible {
   outline: none;
 }
 .task-button {
   display: inline-block;
-  margin: 0.5rem;
+  margin: 0.5em;
   background-color: var(--accent1);
 }
 @media only screen and (max-width: 760px) {
-  /* .tasks-section {
-    margin: 0;
+  .tasks-section {
+    font-size: 0.5rem;
   }
-
-  .tasks-heading {
-    border-left: none;
-  } */
-
-  /* .task-form {
-    min-width: 0;
+  .task {
+    flex-direction: column;
+  }
+  .task h4{
+    font-size: 1rem;
+  }
+  .task-form {
     width: 90%;
-    font-size: 0.9rem;
   }
   .task-form input {
     width: 50%;
-  } */
+  }
 }

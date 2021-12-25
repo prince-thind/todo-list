@@ -1,19 +1,19 @@
 .project-section {
   background-color: var(--secondary);
   text-align: left;
-  /* max-width: 30%; */
+  max-width: 40%;
 }
 .projects-heading {
-  padding: 0.5rem 0;
-  padding-left: 1rem;
-  font-size: 1.5rem;
+  padding: 0.5em 0;
+  padding-left: 1em;
+  font-size: 1.5em;
   display: flex;
   align-items: center;
   border-bottom: 1px solid gray;
 }
 .projects-heading svg {
-  font-size: 1rem;
-  margin-right: 0.5rem;
+  font-size: 1em;
+  margin-right: 0.5em;
 }
 
 .project-list {
@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 1rem;
+  padding-left: 1em;
   color:var(--accent1-text);
 }
 .project-item:hover {
@@ -37,7 +37,7 @@
 
 .delete-icon {
   color: var(--danger);
-  padding: 0.5rem;
+  padding: 0.5em;
   display: block;
 }
 .delete-icon:hover {
@@ -48,10 +48,7 @@
 }
 
 @media only screen and (max-width: 760px) {
-  .project-heading {
-    border-right: none;
-  }
-  .project-tab {
-    margin: 0;
-  }
+ .project-section{
+   font-size: 0.8rem;
+ }
 }

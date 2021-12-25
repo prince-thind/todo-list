@@ -1,6 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--primary);
 }
 .heading {
@@ -21,4 +22,14 @@
 .username svg {
   font-size: 1.5rem;
   margin-right: 0.5rem;
+}
+
+@media only screen and (max-width: 760px) {
+  .heading {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  .status-bar {
+    font-size: 1rem;
+  }
 }

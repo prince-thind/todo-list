@@ -1,4 +1,4 @@
-import _ from 'loadsh';
+import _ from "loadsh";
 
 function TaskForm({
   activeProject,
@@ -6,7 +6,6 @@ function TaskForm({
   setFormActive,
   projects,
   setProjects,
-  setActiveProject,
 }) {
   if (activeProject && formActive) {
     return <Form />;
@@ -16,7 +15,7 @@ function TaskForm({
     return (
       <form className="task-form" onSubmit={handletaskForm}>
         <label htmlFor="task-name">
-          {' '}
+          {" "}
           Task Name
           <input
             type="text"
@@ -25,11 +24,11 @@ function TaskForm({
             required
             maxLength="20"
             minLength="2"
-            placeholder='Task Name'
+            placeholder="Task Name"
           />
         </label>
         <label htmlFor="task-description">
-          {' '}
+          {" "}
           Task Description
           <input
             type="text"
@@ -37,8 +36,7 @@ function TaskForm({
             id="task-description"
             maxLength="50"
             minLength="5"
-            placeholder='Task Description'
-
+            placeholder="Task Description"
           />
         </label>
         <button type="submit" className="button task-button">
@@ -60,8 +58,8 @@ function TaskForm({
     setFormActive(false);
     const form = e.target;
     const task = {
-      name: form['task-name'].value,
-      description: form['task-description'].value,
+      name: form["task-name"].value,
+      description: form["task-description"].value,
     };
     addTask(activeProject, task);
     form.reset();
@@ -71,8 +69,6 @@ function TaskForm({
     const index = projects.indexOf(targetProject);
     projectsCopy[index].tasks.push(task);
     setProjects(projectsCopy);
-    setActiveProject(projectsCopy[index]);
-
   }
 }
 

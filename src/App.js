@@ -2,12 +2,11 @@ import { useState, useEffect } from "react";
 import ProjectList from "./components/ProjectList";
 import TaskList from "./components/TaskList";
 import Header from "./components/Header";
-import * as faker from 'faker';
-import uniqid from 'uniqid';
+import * as faker from "faker";
+import uniqid from "uniqid";
 
 function App() {
   const [projects, setProjects] = useState([]);
-  const [activeProject, setActiveProject] = useState(null);
 
   useEffect(() => {
     setProjects(getProjects());
@@ -29,18 +28,8 @@ function App() {
       <Header />
 
       <main className="main">
-        <ProjectList
-          projects={projects}
-          setActiveProject={setActiveProject}
-          activeProject={activeProject}
-          setProjects={setProjects}
-        />
-        <TaskList
-          activeProject={activeProject}
-          projects={projects}
-          setProjects={setProjects}
-          setActiveProject={setActiveProject}
-        />
+        <ProjectList projects={projects} setProjects={setProjects} />
+        <TaskList projects={projects} setProjects={setProjects} />
       </main>
       <footer className="footer">CopyRight &copy; Prince Thind</footer>
     </div>
@@ -50,20 +39,21 @@ function App() {
 export default App;
 
 function sampleProjects() {
-  const projects=[];
+  const projects = [];
 
-  for(let i=0;i<3;i++){
-    const project={};
-    project.name=`Sample Project ${i+1}`
-    project.id=uniqid();
-    const tasks=[];
-    for(let i=0;i<2;i++){
-      const task={};
-      task.name=faker.commerce.product();
-      task.description=faker.lorem.lines(10);
+  for (let i = 0; i < 3; i++) {
+    const project = {};
+    project.name = `Sample Project ${i + 1}`;
+    project.id = uniqid();
+    project.active = false;
+    const tasks = [];
+    for (let i = 0; i < 2; i++) {
+      const task = {};
+      task.name = faker.commerce.product();
+      task.description = faker.lorem.lines(10);
       tasks.push(task);
     }
-    project.tasks=tasks;
+    project.tasks = tasks;
     projects.push(project);
   }
 

@@ -1,18 +1,18 @@
 import ProjectForm from "./ProjectForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faListUl as projectsHeadingIcon, faTrashAlt as deleteIcon } from "@fortawesome/free-solid-svg-icons";
+import {
+  faListUl as projectsHeadingIcon,
+  faTrashAlt as deleteIcon,
+} from "@fortawesome/free-solid-svg-icons";
 
 import _ from "loadsh";
 
-function ProjectList({
-  projects,
-  activeProject,
-  setActiveProject,
-  setProjects,
-}) {
+function ProjectList({ projects, setProjects }) {
   return (
     <section className="project-section">
-      <div className="projects-heading"><FontAwesomeIcon icon={projectsHeadingIcon}/> Projects</div>
+      <div className="projects-heading">
+        <FontAwesomeIcon icon={projectsHeadingIcon} /> Projects
+      </div>
       <ul className="project-list">
         {projects.map((project, index) => {
           return <Project project={project} key={index} />;
@@ -25,9 +25,9 @@ function ProjectList({
   function Project({ project }) {
     return (
       <li
-        className={"project-item "+(activeProject === project ? "active" : "")}
+        className={"project-item " + (project.active ? "active" : "")}
         onClick={() => {
-          setActiveProject(project);
+          makeProjectActive(project);
         }}
       >
         <div>{project.name}</div>
@@ -56,5 +56,14 @@ function ProjectList({
     projectsCopy.splice(index, 1);
     setProjects(projectsCopy);
   }
+
+  function makeProjectActive(project) {
+    const projectsCopy = _.cloneDeep(projects);
+    const index = projects.indexOf(project);
+    projectsCopy.forEach((p) => (p.active = false));
+    projectsCopy[index].active = true;
+    setProjects(projectsCopy);
+  }
 }
+
 export default ProjectList;

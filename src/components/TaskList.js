@@ -4,9 +4,9 @@ import _ from "loadsh";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt as deleteIcon } from "@fortawesome/free-solid-svg-icons";
 
-function TaskList({ activeProject, projects, setProjects, setActiveProject }) {
+function TaskList({ projects, setProjects }) {
   const [formActive, setFormActive] = useState(false);
-
+  const activeProject = projects.find((p) => p.active);
   if (activeProject) {
     return (
       <div className="tasks-section">
@@ -18,7 +18,6 @@ function TaskList({ activeProject, projects, setProjects, setActiveProject }) {
           setFormActive={setFormActive}
           activeProject={activeProject}
           projects={projects}
-          setActiveProject={setActiveProject}
           setProjects={setProjects}
         />
       </div>
@@ -76,7 +75,6 @@ function TaskList({ activeProject, projects, setProjects, setActiveProject }) {
     const taskIndex = projectsCopy[index].tasks.indexOf(targetTask);
     projectsCopy[index].tasks.splice(taskIndex, 1);
     setProjects(projectsCopy);
-    setActiveProject(projectsCopy[index]);
   }
 }
 

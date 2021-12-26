@@ -34,7 +34,7 @@ function TaskForm({
             type="text"
             name="task-description"
             id="task-description"
-            maxLength="50"
+            maxLength="400"
             minLength="5"
             placeholder="Task Description"
           />

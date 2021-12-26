@@ -17,10 +17,10 @@ function App() {
     localStorage.setItem("todo-projects", jsonProjects);
   }, [projects]);
 
-  function getProjects(user) {
+  function getProjects() {
+    const jsonProjects = JSON.parse(localStorage.getItem("todo-projects"));
+    if (jsonProjects.length > 0) return jsonProjects;
     return sampleProjects();
-    // const jsonProjects=localStorage.getItem('todo-projects');
-    // return JSON.parse(jsonProjects);
   }
 
   return (

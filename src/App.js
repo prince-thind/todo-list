@@ -18,7 +18,8 @@ function App() {
   }, [projects]);
 
   function getProjects() {
-    const jsonProjects = JSON.parse(localStorage.getItem("todo-projects"));
+    const jsonProjects = JSON.parse(localStorage.getItem("todo-projects")) ?? [];
+    console.log(jsonProjects)
     if (jsonProjects.length > 0) return jsonProjects;
     return sampleProjects();
   }

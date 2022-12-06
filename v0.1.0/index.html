@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+  <script defer src="bundle.js"></script></head>
+  <body>
+    <header>
+      <h1 class="heading">Todo</h1>
+    </header>
+    <main class="main">
+      <div class="list">
+        <div class="project-heading">Projects</div>
+        <div class="project-default" id="project-default">All</div>
+        <div class="projects" id="projects">
+          <div class="project-cell">
+            <div class="project-text">dummy</div>
+            <div class="project-delete" id="project-delete">D</div>
+          </div>
+          <div class="project-cell">
+            <div class="project-text">dummy</div>
+            <div class="project-delete" id="project-delete">D</div>
+          </div>
+        </div>
+        <div class="add-project-button" id="add-project-button">+</div>
+      </div>
+      <div class="task-area">
+        <div class="tasks" id="tasks">
+          <div class="task-cell">
+            <div class="task-text">dummy</div>
+            <div class="task-delete" id="task-delete">Complete?</div>
+          </div>
+          <div class="task-cell">
+            <div class="task-text">dummy</div>
+            <div class="task-delete" id="task-delete">Complete?</div>
+          </div>
+        </div>
+        <div class="add-task-button" id="add-task-button">+</div>
+      </div>
+    </main>
+    <footer class="footer">CopyRight © Prince Thind</footer>
+
+    <!--project add-->
+    <section class="add-project-menu absolute hidden" id="add-project-menu">
+      <header>
+        <h2>Add Project</h2>
+      </header>
+      <div class="project-main">
+        <label for="project-name"
+          >Name
+          <input type="text" id="project-name-input" name="task-name" />
+        </label>
+        <div class="button-field">
+          <button class="project-accept button" id="project-accept-button">Accept</button>
+          <button class="project-cancel button" id="project-accept-cancel">Cancel</button>
+        </div>
+      </div>
+    </section>
+    <!--add-task-->
+    <section class="task-add-menu absolute hidden" id="add-task-menu">
+      <header>
+        <h2>Add details for the task</h2>
+      </header>
+      <div class="add-task-input-fields">
+        <label for="task-name"
+          >Name
+          <input type="text" id="task-name" name="task-name" />
+        </label>
+        <label for="task-date"
+          >Due Date
+          <input type="text" id="task-date" name="task-date" />
+        </label>
+        <label for="task-priority"
+          >Priority
+          <div class="priority-buttons">
+            <label for="button-high"><input id="button-high" name="priority" type="radio" value="high">High</label>
+            <label for="button-medium"><input id="button-medium" name="priority" type="radio" value="medium" checked>Medium</label>
+            <label for="button-low"><input id="button-low" name="priority" type="radio" value="low">Low</label>
+          </div>
+        </label>
+        <label for="task-para"
+          >Description
+          <textarea id="task-description"></textarea>
+        </label>
+      </div>
+      <div class="button-field">
+        <button class="task-accept button" id="task-accept-button">Accept</button>
+        <button class="task-cancel button" id="task-cancel-button">Cancel</button>
+      </div>
+    </section>
+
+    <!--project delete-->
+    <section class="delete-project-menu hidden absolute">
+      <header>
+        <h2>Are you sure you want to delete this project?</h2>
+      </header>
+      <div class="button-field">
+        <button class="project-delete-accept button">Accept</button>
+        <button class="project-delete-cancel button">Cancel</button>
+      </div>
+    </section>
+    <!--mark-complete-->
+    <section class="mark-complete-menu hidden absolute">
+      <header>
+        <h2>Are you sure you want to mark this project complete?</h2>
+      </header>
+      <div class="button-field">
+        <button class="mark-complete-accept button">Accept</button>
+        <button class="mark-complete-cancel button">Cancel</button>
+      </div>
+    </section>
+  </body>
+</html>
